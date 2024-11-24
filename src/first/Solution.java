@@ -15,7 +15,7 @@ public class Solution {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(resolve(N));
+        System.out.println(resolve(checkForNegative(N)));
     }
 
     private List<String> resolve(int N) {
@@ -23,6 +23,14 @@ public class Solution {
         brackets(N, N, "", result);
         System.out.println("Count of variants: " + result.size());
         return result;
+    }
+
+    private int checkForNegative(int N) {
+        if (N < 0) {
+            throw new IllegalArgumentException("Negative numbers are not allowed");
+        } else {
+            return N;
+        }
     }
 
     /**
