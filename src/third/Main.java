@@ -7,7 +7,7 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) {
-        String number;
+        final String number;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             number = br.readLine();
         } catch (IOException e) {
@@ -22,7 +22,7 @@ public class Main {
 
         int sum = 0;
 
-        String allDigits = fact.toString();  // multiplication to string for using Character
+        final String allDigits = fact.toString();  // multiplication to string for using Character
 
         for (int i = 0; i < allDigits.length(); i++) {
             sum += Character.getNumericValue(allDigits.charAt(i));  // get digits and + them

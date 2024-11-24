@@ -9,7 +9,7 @@ import java.util.List;
 public class Solution {
 
     public void read() {
-        int N;
+        final int N;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             N = Integer.parseInt(br.readLine());
         } catch (IOException e) {
@@ -18,14 +18,14 @@ public class Solution {
         System.out.println(resolve(checkForNegative(N)));
     }
 
-    private List<String> resolve(int N) {
-        List<String> result = new LinkedList<>();
+    private List<String> resolve(final int N) {
+        final List<String> result = new LinkedList<>();
         brackets(N, N, "", result);
         System.out.println("Count of variants: " + result.size());
         return result;
     }
 
-    private int checkForNegative(int N) {
+    private int checkForNegative(final int N) {
         if (N < 0) {
             throw new IllegalArgumentException("Negative numbers are not allowed");
         } else {
@@ -38,7 +38,7 @@ public class Solution {
      * Add an opening bracket ( if openBracket > 0
      * Add closing bracket ) if closeBracket > openBracket
      **/
-    private void brackets(int openBracket, int closeBracket, String currentBrackets, List<String> result) {
+    private void brackets(final int openBracket, final int closeBracket, final String currentBrackets, final List<String> result) {
 
         if (openBracket == 0 && closeBracket == 0) {  //All brackets are used
             result.add(currentBrackets);  //The currentBrackets string is added to the result
