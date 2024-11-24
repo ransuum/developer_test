@@ -13,19 +13,19 @@ public class Main {
 
             while (s-- > 0) {  // Process each test case
                 final int n = Integer.parseInt(br.readLine());  // Number of cities
-                Map<String, Integer> mapCities = new HashMap<>();  // Map city names to indices
-                List<City> cities = new LinkedList<>();  // List to store all cities
+                final Map<String, Integer> mapCities = new HashMap<>();  // Map city names to indices
+                final List<City> cities = new LinkedList<>();  // List to store all cities
 
                 // Read information for each city
                 for (int i = 0; i < n; i++) {
-                    String name = br.readLine();
+                    final String name = br.readLine();
                     mapCities.put(name, i);  // Map city name to its index
                     cities.add(new City(name));  // Add new city to the list
 
                     final int p = Integer.parseInt(br.readLine());  // Number of neighbors
                     // Read information for each neighbor
                     for (int j = 0; j < p; j++) {
-                        String[] connection = br.readLine().split(" ");
+                        final String[] connection = br.readLine().split(" ");
                         final int neighborIndex = Integer.parseInt(connection[0]) - 1;  // Convert to 0-based index
                         final int cost = Integer.parseInt(connection[1]);
                         cities.get(i).neighbors.put(neighborIndex, cost);  // Add neighbor and cost
@@ -35,7 +35,7 @@ public class Main {
                 final int r = Integer.parseInt(br.readLine());  // Number of paths to find
                 // Process each path query
                 for (int i = 0; i < r; i++) {
-                    String[] path = br.readLine().split(" ");
+                    final String[] path = br.readLine().split(" ");
                     final int start = mapCities.get(path[0]);  // Get index of start city
                     final int end = mapCities.get(path[1]);  // Get index of end city
                     final int cost = findMinCost(cities, start, end);  // Find minimum cost
